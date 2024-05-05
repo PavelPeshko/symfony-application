@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Order{% endblock %}
+
+{% block body %}
+    <h1>Order</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ order.id }}</td>
+            </tr>
+            <tr>
+                <th>UserName</th>
+                <td>{{ order.userName }}</td>
+            </tr>
+            <tr>
+                <th>UserEmail</th>
+                <td>{{ order.userEmail }}</td>
+            </tr>
+            <tr>
+                <th>DeliveryMethod</th>
+                <td>{{ order.deliveryMethod }}</td>
+            </tr>
+            <tr>
+                <th>TrackingNumber</th>
+                <td>{{ order.trackingNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('order_list') }}">back to list</a>
+
+    <a href="{{ path('edit_order', {'id': order.id}) }}">edit</a>
+
+    {{ include('order/delete-order.html.twig') }}
+{% endblock %}
